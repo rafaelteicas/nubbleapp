@@ -19,11 +19,11 @@ export function Text({
   bold,
   italic,
   semiBold,
-  ...rest
+  ...textProps
 }: TextProps) {
   const fontFamily = getFontFamily(preset, bold, italic, semiBold);
   return (
-    <RNText style={[$fontSizes[preset], {fontFamily}, style]} {...rest}>
+    <RNText style={[$fontSizes[preset], {fontFamily}, style]} {...textProps}>
       {children}
     </RNText>
   );
