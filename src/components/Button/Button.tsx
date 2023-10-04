@@ -15,14 +15,13 @@ export function Button({
 }: ButtonProps) {
   return (
     <TouchableOpacityBox
-      onPress={() => console.log('Clicou')}
       backgroundColor="error"
       height={54}
       alignItems="center"
       justifyContent="center"
       borderRadius="s16"
       {...touchableOpacityProps}>
-      <Text preset="headingMedium" bold style={{color: 'white'}}>
+      <Text preset="headingMedium" bold color="grayWhite">
         {loading ? <ActivityIndicator /> : title}
       </Text>
     </TouchableOpacityBox>
