@@ -7,11 +7,23 @@ import React from 'react';
 
 interface TextProps extends RNTextProps {
   preset: TextVariants;
+  bold?: boolean;
+  italic?: boolean;
+  semiBold?: boolean;
 }
 
-export function Text({children, preset, style, ...rest}: TextProps) {
+export function Text({
+  children,
+  preset,
+  style,
+  bold,
+  italic,
+  semiBold,
+  ...rest
+}: TextProps) {
+  const fontFamily = getFontFamily(preset, bold, italic, semiBold);
   return (
-    <RNText style={[$fontSizes[preset], style]} {...rest}>
+    <RNText style={[$fontSizes[preset], {fontFamily}, style]} {...rest}>
       {children}
     </RNText>
   );
@@ -38,4 +50,58 @@ const $fontSizes: Record<TextVariants, TextStyle> = {
 
   paragraphCaption: {fontSize: 12, lineHeight: 16.8},
   paragraphCaptionSmall: {fontSize: 10, lineHeight: 14},
+};
+
+function getFontFamily(
+  preset: TextVariants,
+  bold?: boolean,
+  italic?: boolean,
+  semiBold?: boolean,
+) {
+  if (
+    preset === 'headingLarge' ||
+    preset === 'headingMedium' ||
+    preset === 'headingSmall'
+  ) {
+    return italic ? $fontFamily.boldItalic : $fontFamily.bold;
+  }
+  switch (true) {
+    case bold && italic:
+      return $fontFamily.boldItalic;
+    case bold:
+      return $fontFamily.bold;
+    case italic:
+      return $fontFamily.italic;
+    case semiBold:
+      return $fontFamily.medium;
+    default:
+      return $fontFamily.regular;
+  }
+
+  // if (bold && italic) {
+  //   return $fontFamily.boldItalic;
+  // }
+  // if (bold) {
+  //   return $fontFamily.bold;
+  // }
+  // if (italic) {
+  //   return $fontFamily.italic;
+  // }
+  // if (semiBold) {
+  //   return $fontFamily.medium;
+  // }
+  // return $fontFamily.regular;
+}
+
+const $fontFamily = {
+  black: 'Satoshi-Black',
+  blackItalic: 'Satoshi-BlackItalic',
+  bold: 'Satoshi-Bold',
+  boldItalic: 'Satoshi-BoldItalic',
+  italic: 'Satoshi-Italic',
+  light: 'Satoshi-Light',
+  lightItalic: 'Satoshi-LightItalic',
+  medium: 'Satoshi-Medium',
+  mediumItalic: 'Satoshi-MediumItalic',
+  regular: 'Satoshi-Regular',
 };
