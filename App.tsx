@@ -12,7 +12,7 @@ export default function App() {
         <Text preset="headingLarge">Odsalaaa</Text>
         <Button title="Entrar" />
         <Button loading title="Entrar" />
-        <Button preset="outline" title="Entrar" />
+        <Button loading preset="outline" title="Entrar" />
         <Button preset="secondary" title="Entrar" />
       </Box>
     </ThemeProvider>

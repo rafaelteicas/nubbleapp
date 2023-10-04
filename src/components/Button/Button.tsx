@@ -2,7 +2,7 @@ import React from 'react';
 import {Text} from '../Text/Text';
 import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box/Box';
 import {ThemeColors} from '../../theme/theme';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator} from '../ActivityIndicator/ActivityIndicator';
 
 export type ButtonPreset = 'primary' | 'outline' | 'secondary';
 
@@ -54,7 +54,11 @@ export function Button({
       {...ButtonPresets[preset].container}
       {...touchableOpacityProps}>
       <Text preset="headingMedium" bold color={ButtonPresets[preset].content}>
-        {loading ? <ActivityIndicator /> : title}
+        {loading ? (
+          <ActivityIndicator color={ButtonPresets[preset].content} />
+        ) : (
+          title
+        )}
       </Text>
     </TouchableOpacityBox>
   );
