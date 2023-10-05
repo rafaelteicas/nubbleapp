@@ -16,6 +16,8 @@ import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 import {CameraIcon} from '../../assets/icons/CameraIcon';
 import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
 import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
+import {ArrowLeftIcon} from '../../assets/icons/ArrowLeftIcon';
+import {ArrowRightIcon} from '../../assets/icons/ArrowRightIcon';
 
 export interface IconBase {
   size?: number;
@@ -50,6 +52,8 @@ const iconRegistry = {
   camera: CameraIcon,
   flashOff: FlashOffIcon,
   flashOn: FlashOnIcon,
+  arrowLeft: ArrowLeftIcon,
+  arrowRight: ArrowRightIcon,
 };
 
 type IconName = keyof typeof iconRegistry;
