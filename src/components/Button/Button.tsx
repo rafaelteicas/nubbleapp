@@ -29,7 +29,7 @@ export function Button({
       borderRadius="s16"
       {...buttonPreset.container}
       {...touchableOpacityProps}>
-      <Text preset="headingMedium" bold color={buttonPreset.content}>
+      <Text preset="paragraphMedium" bold color={buttonPreset.content}>
         {loading ? <ActivityIndicator color={buttonPreset.content} /> : title}
       </Text>
     </TouchableOpacityBox>

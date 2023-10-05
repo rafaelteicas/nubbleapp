@@ -19,12 +19,19 @@ import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
 import {ArrowLeftIcon} from '../../assets/icons/ArrowLeftIcon';
 import {ArrowRightIcon} from '../../assets/icons/ArrowRightIcon';
 import {Pressable} from 'react-native';
+import {CheckRoundIcon} from '../../assets/icons/CheckRoundIcon';
+import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
 
-interface Props {
+export interface IconProps {
   name: IconName;
   size?: number;
   color?: ThemeColors;
   onPress?: () => void;
+}
+
+export interface IconBase {
+  size?: number;
+  color?: string;
 }
 
 export function Icon({
@@ -32,7 +39,7 @@ export function Icon({
   size = 20,
   color = 'backgroundContrast',
   onPress,
-}: Props) {
+}: IconProps) {
   const {colors} = useAppTheme();
   const SVGIcon = iconRegistry[name];
   if (onPress) {
@@ -63,6 +70,8 @@ const iconRegistry = {
   flashOn: FlashOnIcon,
   arrowLeft: ArrowLeftIcon,
   arrowRight: ArrowRightIcon,
+  checkRound: CheckRoundIcon,
+  messageRound: MessageRoundIcon,
 };
 
 type IconName = keyof typeof iconRegistry;

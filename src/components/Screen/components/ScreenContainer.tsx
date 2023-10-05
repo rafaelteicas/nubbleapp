@@ -16,5 +16,5 @@ export function ScrollViewContainer({backgroundColor, children}: Props) {
   );
 }
 export function ViewContainer({backgroundColor, children}: Props) {
-  return <View style={{backgroundColor}}>{children}</View>;
+  return <View style={{backgroundColor, flex: 1}}>{children}</View>;
 }
