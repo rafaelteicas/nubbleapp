@@ -2,12 +2,12 @@ import React from 'react';
 import {Screen} from '../../../components/Screen/Screen';
 import {Text} from '../../../components/Text/Text';
 import {TextInput} from '../../../components/TextInput/TextInput';
-import {Icon} from '../../../components/Icon/Icon';
 import {Button} from '../../../components/Button/Button';
+import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
 
 export function SignUpScreen() {
   return (
-    <Screen canGoBack>
+    <Screen scrollable canGoBack>
       <Text preset="headingLarge" mb="s32">
         Criar uma conta
       </Text>
@@ -19,12 +19,12 @@ export function SignUpScreen() {
         boxProps={{mb: 's20'}}
       />
       <TextInput label="Seu email" placeholder="@" boxProps={{mb: 's20'}} />
-      <TextInput
+      <PasswordInput
         label="Sua senha"
-        placeholder="@"
+        placeholder="Insira sua senha"
         boxProps={{mb: 's48'}}
-        RightComponent={<Icon name="eyeOn" />}
       />
+
       <Button marginTop="s48" title="Criar conta" />
     </Screen>
   );

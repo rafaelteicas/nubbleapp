@@ -18,21 +18,30 @@ import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
 import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
 import {ArrowLeftIcon} from '../../assets/icons/ArrowLeftIcon';
 import {ArrowRightIcon} from '../../assets/icons/ArrowRightIcon';
-
-export interface IconBase {
-  size?: number;
-  color: string;
-}
+import {Pressable} from 'react-native';
 
 interface Props {
   name: IconName;
   size?: number;
   color?: ThemeColors;
+  onPress?: () => void;
 }
 
-export function Icon({name, size = 20, color = 'backgroundContrast'}: Props) {
+export function Icon({
+  name,
+  size = 20,
+  color = 'backgroundContrast',
+  onPress,
+}: Props) {
   const {colors} = useAppTheme();
   const SVGIcon = iconRegistry[name];
+  if (onPress) {
+    return (
+      <Pressable onPress={onPress} hitSlop={8}>
+        <SVGIcon size={size} color={colors[color]} />
+      </Pressable>
+    );
+  }
   return <SVGIcon size={size} color={colors[color]} />;
 }
 

@@ -9,7 +9,7 @@ import {Box, BoxProps} from '../Box/Box';
 import {$fontFamily, $fontSizes, Text} from '../Text/Text';
 import {useAppTheme} from '../../hooks/useAppTheme';
 
-interface TextInputProps extends RNTextInputProps {
+export interface TextInputProps extends RNTextInputProps {
   label: string;
   errorMessage?: string;
   RightComponent?: React.ReactElement;
@@ -57,12 +57,12 @@ export function TextInput({
             </Box>
           )}
         </Box>
-        {errorMessage && (
-          <Text preset="paragraphSmall" bold color="error">
-            {errorMessage}
-          </Text>
-        )}
       </Pressable>
+      {errorMessage && (
+        <Text preset="paragraphSmall" bold color="error">
+          {errorMessage}
+        </Text>
+      )}
     </Box>
   );
 }
