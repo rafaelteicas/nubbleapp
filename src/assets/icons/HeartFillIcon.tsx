@@ -1,5 +1,7 @@
 import React from 'react';
+
 import {Path, Svg} from 'react-native-svg';
+
 import {IconBase} from '../../components/Icon/Icon';
 
 export function HeartFillIcon({size, color}: IconBase) {

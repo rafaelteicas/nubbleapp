@@ -1,26 +1,28 @@
 import React from 'react';
-import {EyeOffIcon} from '../../assets/icons/EyeOffIcon';
-import {EyeOnIcon} from '../../assets/icons/EyeOnIcon';
-import {ThemeColors} from '../../theme/theme';
-import {useAppTheme} from '../../hooks/useAppTheme';
-import {BookMarkFillIcon} from '../../assets/icons/BookMarkFillIcon';
-import {HeartFillIcon} from '../../assets/icons/HeartFillIcon';
-import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
-import {ProfileFillIcon} from '../../assets/icons/ProfileFillIcon';
-import {BellOnIcon} from '../../assets/icons/BellOnIcon';
-import {BellIcon} from '../../assets/icons/BellIcon';
-import {ChatIcon} from '../../assets/icons/ChatIcon';
-import {ChatOnIcon} from '../../assets/icons/ChatOnIcon';
-import {CommentIcon} from '../../assets/icons/CommentIcon';
-import {SettingsIcon} from '../../assets/icons/SettingsIcon';
-import {CameraIcon} from '../../assets/icons/CameraIcon';
-import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
-import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
+import {Pressable} from 'react-native';
+
+import {useAppTheme} from '@hooks';
+import {ThemeColors} from '@theme';
+
 import {ArrowLeftIcon} from '../../assets/icons/ArrowLeftIcon';
 import {ArrowRightIcon} from '../../assets/icons/ArrowRightIcon';
-import {Pressable} from 'react-native';
+import {BellIcon} from '../../assets/icons/BellIcon';
+import {BellOnIcon} from '../../assets/icons/BellOnIcon';
+import {BookMarkFillIcon} from '../../assets/icons/BookMarkFillIcon';
+import {CameraIcon} from '../../assets/icons/CameraIcon';
+import {ChatIcon} from '../../assets/icons/ChatIcon';
+import {ChatOnIcon} from '../../assets/icons/ChatOnIcon';
 import {CheckRoundIcon} from '../../assets/icons/CheckRoundIcon';
+import {CommentIcon} from '../../assets/icons/CommentIcon';
+import {EyeOffIcon} from '../../assets/icons/EyeOffIcon';
+import {EyeOnIcon} from '../../assets/icons/EyeOnIcon';
+import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
+import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
+import {HeartFillIcon} from '../../assets/icons/HeartFillIcon';
+import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
 import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
+import {ProfileFillIcon} from '../../assets/icons/ProfileFillIcon';
+import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 
 export interface IconProps {
   name: IconName;
