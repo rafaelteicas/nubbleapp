@@ -46,6 +46,7 @@ export function TextInput({
         </Text>
         <Box {...$textInputContainer}>
           <RNTextInput
+            autoCapitalize="none"
             ref={inputRef}
             placeholderTextColor={colors.gray2}
             style={$textInputStyle}
