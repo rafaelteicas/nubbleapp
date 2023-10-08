@@ -9,6 +9,7 @@ import {ArrowRightIcon} from '../../assets/icons/ArrowRightIcon';
 import {BellIcon} from '../../assets/icons/BellIcon';
 import {BellOnIcon} from '../../assets/icons/BellOnIcon';
 import {BookMarkFillIcon} from '../../assets/icons/BookMarkFillIcon';
+import {BookMarkIcon} from '../../assets/icons/BookMarkIcon';
 import {CameraIcon} from '../../assets/icons/CameraIcon';
 import {ChatIcon} from '../../assets/icons/ChatIcon';
 import {ChatOnIcon} from '../../assets/icons/ChatOnIcon';
@@ -20,8 +21,11 @@ import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
 import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
 import {HeartFillIcon} from '../../assets/icons/HeartFillIcon';
 import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
+import {HomeIcon} from '../../assets/icons/HomeIcon';
 import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
+import {NewPostIcon} from '../../assets/icons/NewPostIcon';
 import {ProfileFillIcon} from '../../assets/icons/ProfileFillIcon';
+import {ProfileIcon} from '../../assets/icons/ProfileIcon';
 import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 
 export interface IconProps {
@@ -57,9 +61,12 @@ export function Icon({
 const iconRegistry = {
   eyeOn: EyeOnIcon,
   eyeOff: EyeOffIcon,
+  bookMark: BookMarkIcon,
   bookMarkFill: BookMarkFillIcon,
   heartFill: HeartFillIcon,
+  home: HomeIcon,
   homeFill: HomeFillIcon,
+  profile: ProfileIcon,
   profileFill: ProfileFillIcon,
   bell: BellIcon,
   bellOn: BellOnIcon,
@@ -74,6 +81,7 @@ const iconRegistry = {
   arrowRight: ArrowRightIcon,
   checkRound: CheckRoundIcon,
   messageRound: MessageRoundIcon,
+  newPost: NewPostIcon,
 };
 
-type IconName = keyof typeof iconRegistry;
+export type IconName = keyof typeof iconRegistry;

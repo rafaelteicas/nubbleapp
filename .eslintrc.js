@@ -10,6 +10,7 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        '@typescript-eslint/no-unused-vars': 'error',
         'import/order': [
           'error',
           {
@@ -36,7 +37,7 @@ module.exports = {
               order: 'asc',
               caseInsensitive: true,
             },
-            'newlines-between': 'always',
+            'newlines-between': 'always-and-inside-groups',
           },
         ],
       },
