@@ -26,6 +26,7 @@ import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
 import {NewPostIcon} from '../../assets/icons/NewPostIcon';
 import {ProfileFillIcon} from '../../assets/icons/ProfileFillIcon';
 import {ProfileIcon} from '../../assets/icons/ProfileIcon';
+import SearchIcon from '../../assets/icons/SearchIcon';
 import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 
 export interface IconProps {
@@ -82,6 +83,7 @@ const iconRegistry = {
   checkRound: CheckRoundIcon,
   messageRound: MessageRoundIcon,
   newPost: NewPostIcon,
+  search: SearchIcon,
 };
 
 export type IconName = keyof typeof iconRegistry;
