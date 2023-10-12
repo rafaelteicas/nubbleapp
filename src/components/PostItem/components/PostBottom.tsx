@@ -15,7 +15,7 @@ export function PostBottom({author, text, commentCount}: Props) {
         {text}
       </Text>
       <TouchableOpacityBox>
-        <Text mt="s12" preset="paragraphSmall" color="primary" bold>
+        <Text mt="s12" mb="s24" preset="paragraphSmall" color="primary" bold>
           {getCommentText(commentCount)}
         </Text>
       </TouchableOpacityBox>
