@@ -5,6 +5,7 @@ export type Post = {
     profileURL: string;
     name: string;
     userName: string;
+    id: number;
   };
   imageURL: string;
   reactionCount: number;

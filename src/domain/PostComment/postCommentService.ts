@@ -21,12 +21,6 @@ async function getList(
   };
 }
 
-// async function create(postId: number, message: string): Promise<PostComment> {
-//   const postCommentAPI = await postCommentApi.create(postId, message);
-
-//   return postCommentAdapter.toPostComment(postCommentAPI);
-// }
-
 async function create(postId: number, message: string): Promise<PostComment> {
   const response = await postCommentApi.create(postId, message);
   return postCommentAdapter.toPostComment(response);
@@ -38,8 +32,23 @@ async function remove(postCommentId: number): Promise<string> {
   return response.message;
 }
 
+function isAllowToDelete(
+  postCommentAuthorId: PostComment,
+  userId: number,
+  postAuthorId: number,
+): boolean {
+  if (userId === postCommentAuthorId.author.id) {
+    return true;
+  }
+  if (userId === postAuthorId) {
+    return true;
+  }
+  return false;
+}
+
 export const postCommentService = {
   getList,
   create,
   remove,
+  isAllowToDelete,
 };

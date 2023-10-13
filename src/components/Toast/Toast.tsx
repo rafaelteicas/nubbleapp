@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import {Toast, useToast, useToastService} from '@services';
+import {useToast, useToastService} from '@services';
 
 import {ToastContent} from './components/ToastContent';
 

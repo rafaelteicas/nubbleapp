@@ -12,11 +12,11 @@ type Props = {
 };
 
 export function PostCommentTextMessage({postId, onAddComment}: Props) {
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState<string>('');
   const {createComment} = usePostCommentCreate(postId, {
     onSuccess: () => {
-      setComment('');
       Keyboard.dismiss();
+      setComment('');
       onAddComment();
     },
   });

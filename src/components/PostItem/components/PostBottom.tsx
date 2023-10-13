@@ -21,6 +21,7 @@ export function PostBottom({author, text, commentCount, id}: Props) {
         onPress={() =>
           navigation.navigate('PostCommentScreen', {
             postId: id,
+            authorId: author.id,
           })
         }>
         <Text mt="s12" mb="s24" preset="paragraphSmall" color="primary" bold>
