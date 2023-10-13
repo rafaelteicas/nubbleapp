@@ -26,6 +26,7 @@ export function PostItem({item}: Props) {
         author={item.author}
         text={item.text}
         commentCount={item.commentCount}
+        id={item.id}
       />
     </Box>
   );

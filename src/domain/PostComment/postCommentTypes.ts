@@ -1,32 +1,32 @@
-export type PostComment = {
-  id: number;
+export interface PostComment {
+  id: number; // 117;
   message: string;
-  created_at: string;
-  user: {
-    id: number;
-    profileUrl: string;
+  createdAt: string; // '2023-07-24T20:38:56.192+10:00';
+  createdAtRelative: string; // '1 h, 2 sem';
+  author: {
+    id: number; // 6;
+    profileURL: string;
+    name: string;
     userName: string;
-    email: string;
-    fullName: string;
   };
-};
+}
 
-export type PostCommentAPI = {
-  id: number; // 109;
-  message: string; // 'Tempora nam voluptates.';
-  user_id: number; // 7;
+export interface PostCommentAPI {
+  id: number; // 117;
+  message: string; // 'Pariatur cupiditate neque fugit pariatur ipsa.';
+  user_id: number; // 6;
   post_id: number; // 1;
-  created_at: string; // '2023-10-10T19:48:54.000-04:00';
-  updated_at: string; // '2023-10-11T14:06:34.585-04:00';
+  created_at: string; // '2023-07-24T20:38:56.192+10:00';
+  updated_at: string; // '2023-07-24T20:38:56.192+10:00';
   user: {
-    id: number; // 7;
-    first_name: string; //'Mateus';
-    last_name: string; // 'de Souza';
-    username: string; //'mateussouza';
-    email: string; //'msouza@coffstack.com';
-    profile_url: string; // 'https://nubble-development.s3.sa-east-1.amazonaws.com/backend-integration/8-mateus.png';
-    is_online: boolean; // false;
-    full_name: string; // 'Mateus de Souza';
+    id: number; // 6;
+    first_name: string; // 'Samuel';
+    last_name: string; // 'Vilar';
+    username: string; //  'samuelvilar';
+    email: string; //'samu.vilar@coffstack.com';
+    profile_url: string; // 'https://nubble-development.s3.sa-east-1.amazonaws.com/backend-integration/5-samuel.png';
+    is_online: boolean; //false;
+    full_name: string; //'Samuel Vilar';
   };
-  meta: any; // {};
-};
+  meta: any; //{};
+}

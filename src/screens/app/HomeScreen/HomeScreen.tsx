@@ -20,7 +20,7 @@ import {HomeHeader} from './components/HomeHeader';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
-  const {error, loading, postList, refresh, fetchNextPage} = usePostList();
+  const {error, loading, list, refresh, fetchNextPage} = usePostList();
   const flatListRef = useRef<FlatList<Post>>(null);
   useScrollToTop(flatListRef);
 
@@ -32,13 +32,13 @@ export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
       <FlatList
         ref={flatListRef}
         showsVerticalScrollIndicator={false}
-        data={postList}
-        keyExtractor={item => item.id}
+        data={list}
+        keyExtractor={item => item.id.toString()}
         refreshControl={<RefreshControl refreshing={loading} />}
         renderItem={renderItem}
         onEndReached={fetchNextPage}
         onEndReachedThreshold={0.1}
-        contentContainerStyle={{flex: postList.length === 0 ? 1 : undefined}}
+        contentContainerStyle={{flex: list.length === 0 ? 1 : undefined}}
         ListHeaderComponent={<HomeHeader />}
         ListEmptyComponent={
           <HomeEmpty refetch={refresh} error={error} loading={loading} />
