@@ -1,5 +1,7 @@
 import {api} from '@api';
 
+import {AxiosRequestConfig} from 'axios';
+
 import {UserAPI} from '../User/userTypes';
 
 import {
@@ -8,6 +10,8 @@ import {
   SignInData,
   SignUpDataAPI,
 } from './authTypes';
+
+const REFRESH_TOKEN_URL = 'auth/refresh-token';
 
 async function signIn({
   email,
@@ -50,11 +54,16 @@ async function forgotPassword(email: string): Promise<{message: string}> {
 }
 
 async function refreshToken(token: string): Promise<AuthCredentialsAPI> {
-  const response = await api.post<AuthCredentialsAPI>('auth/refresh-token', {
+  const response = await api.post<AuthCredentialsAPI>(REFRESH_TOKEN_URL, {
     refreshToken: token,
   });
 
   return response.data;
+}
+
+function isRefreshTokenRequest(request: AxiosRequestConfig): boolean {
+  const url = request.url;
+  return url === REFRESH_TOKEN_URL;
 }
 
 export const authApi = {
@@ -65,4 +74,5 @@ export const authApi = {
   isUsernameAvailable,
   forgotPassword,
   refreshToken,
+  isRefreshTokenRequest,
 };

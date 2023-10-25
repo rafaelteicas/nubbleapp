@@ -17,6 +17,7 @@ export * from './User/userTypes';
 
 export * from './Auth/hooks/useUser';
 export * from './Auth/authService';
+export * from './Auth/authApi';
 export * from './Auth/useCases/useAuthSignIn';
 export * from './Auth/useCases/useAuthSignOut';
 export * from './Auth/useCases/useAuthSignUp';
