@@ -8,7 +8,11 @@ type Props = Pick<ScreenProps, 'title' | 'canGoBack'>;
 export function ScreenHeader({title, canGoBack}: Props) {
   const navigation = useNavigation();
   return (
-    <Box flexDirection="row" marginBottom="s24" justifyContent="space-between">
+    <Box
+      flexDirection="row"
+      marginBottom="s24"
+      justifyContent="space-between"
+      alignItems="center">
       {canGoBack && (
         <TouchableOpacityBox flexDirection="row" onPress={navigation.goBack}>
           <Icon name="arrowLeft" color="primary" />

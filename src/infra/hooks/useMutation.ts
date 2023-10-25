@@ -1,10 +1,14 @@
 import {useState} from 'react';
 
 export interface MutationOptions<TData> {
-  onSuccess?: (data: TData) => void;
+  onSuccess?: (data?: TData) => void;
   onError?: (message: string) => void;
   errorMessage?: string;
 }
+
+/**
+ * @deprecated Usar o useMutation do React Query.
+ */
 export function useMutation<TVariables, TData>(
   mutationFn: (variables: TVariables) => Promise<TData>,
   options?: MutationOptions<TData>,

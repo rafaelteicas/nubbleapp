@@ -9,22 +9,21 @@ import {useToastService} from '@services';
 import {Box, ProfileAvatar, Text} from '@components';
 
 interface Props {
+  postId: number;
   postComment: PostComment;
   userId: number;
   postAuthorId: number;
-  onRemove: () => void;
 }
 export function PostCommentItem({
   postComment,
   postAuthorId,
   userId,
-  onRemove,
+  postId,
 }: Props) {
   const {showToast} = useToastService();
-  const {mutate} = usePostCommentRemove({
+  const {mutate} = usePostCommentRemove(postId, {
     onSuccess: () => {
       showToast({message: 'Removido com sucesso!'});
-      onRemove();
     },
   });
   const isAllowToDelete = postCommentService.isAllowToDelete(
@@ -32,8 +31,6 @@ export function PostCommentItem({
     userId,
     postAuthorId,
   );
-  console.log(postComment.author.id);
-  console.log(postAuthorId);
 
   function confirmRemove() {
     Alert.alert('Remover comentario?', 'Voce deseja excluir o comentario?', [

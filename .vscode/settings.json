@@ -2,5 +2,6 @@
   "java.compile.nullAnalysis.mode": "automatic",
   "java.project.sourcePaths": [
     "src/screens/app/PostCommentScreen"
-  ]
+  ],
+  "cSpell.language": "en,pt,pt-BR"
 }

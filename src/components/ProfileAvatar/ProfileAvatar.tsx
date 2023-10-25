@@ -2,7 +2,7 @@ import React from 'react';
 import {Image} from 'react-native';
 
 type Props = {
-  imageUrl: string;
+  imageUrl: string | undefined;
   /**
    * @default 32
    */
