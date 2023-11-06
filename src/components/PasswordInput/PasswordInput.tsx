@@ -17,7 +17,7 @@ export function PasswordInput(props: PasswordInputProps) {
       RightComponent={
         <Icon
           color="gray2"
-          name={isSecureTextEntry ? 'eyeOff' : 'eyeOn'}
+          name={isSecureTextEntry ? 'eyeOn' : 'eyeOff'}
           onPress={toggleSecureTextEntry}
         />
       }
