@@ -1,8 +1,7 @@
-import { renderHook } from "@testing-library/react-native"
 import { useAppSafeArea } from "../useAppSafeArea"
 import { theme } from "@theme"
 import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context"
-import { AllTheProviders } from "test-utils"
+import { wrapperAllProviders, renderHook } from "test-utils"
 
 jest.mock('react-native-safe-area-context')
 
@@ -14,7 +13,7 @@ describe('useAppSafeArea', () => {
       top: 5,
       bottom: 10,
     } as EdgeInsets));
-    const { result } = renderHook(() => useAppSafeArea(), {wrapper: AllTheProviders});
+    const { result } = renderHook(() => useAppSafeArea());
     expect(result.current.top).toEqual(theme.spacing.s20);
     expect(result.current.bottom).toEqual(theme.spacing.s20);
   });
@@ -26,9 +25,7 @@ describe('useAppSafeArea', () => {
             bottom: 40,
           } as EdgeInsets),
       );
-      const {result} = renderHook(() => useAppSafeArea(), {
-        wrapper: AllTheProviders,
-      });
+      const {result} = renderHook(() => useAppSafeArea());
       expect(result.current.top).toEqual(40);
       expect(result.current.bottom).toEqual(40);
     });
