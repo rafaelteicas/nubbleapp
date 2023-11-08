@@ -11,7 +11,6 @@ export interface UsePaginatedListResult<TData> {
   fetchNextPage: () => void;
   hasNextPage: boolean;
 }
-
 export function usePaginatedList<Data>(
   queryKey: readonly unknown[],
   getList: (page: number) => Promise<Page<Data>>,
@@ -20,9 +19,9 @@ export function usePaginatedList<Data>(
 
   const query = useInfiniteQuery({
     queryKey,
-    queryFn: ({pageParam}) => getList(pageParam),
+    queryFn: ({pageParam = 1}) => getList(pageParam),
     getNextPageParam: ({meta}) =>
-      meta.hasNextPage ? meta.currentPage + 1 : undefined,
+      meta.hasNextPage ? meta.currentPage + 1 : null,
   });
 
   useEffect(() => {
