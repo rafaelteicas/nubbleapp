@@ -1,7 +1,7 @@
 import { useAppSafeArea } from "../useAppSafeArea"
 import { theme } from "@theme"
 import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context"
-import { wrapperAllProviders, renderHook } from "test-utils"
+import { renderHook } from "test-utils"
 
 jest.mock('react-native-safe-area-context')
 

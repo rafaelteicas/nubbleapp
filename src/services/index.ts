@@ -7,3 +7,4 @@ export * from './authCredentials/useAuthCredentials';
 export * from './storage';
 
 export {AuthCredentialsProvider} from './authCredentials/Providers/AuthCredentialsProvider';
+export * from './authCredentials/authCredentialsStorage';

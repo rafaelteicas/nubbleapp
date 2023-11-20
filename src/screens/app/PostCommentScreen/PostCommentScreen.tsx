@@ -12,6 +12,7 @@ import {
   PostCommentItem,
   PostCommentTextMessage,
 } from './components';
+import { useAuthCredentials } from '@services';
 
 export function PostCommentScreen({
   route,
@@ -21,14 +22,15 @@ export function PostCommentScreen({
   const {list, fetchNextPage, hasNextPage} = usePostCommentList(postId);
 
   const {bottom} = useAppSafeArea();
-  const {id} = useUser();
 
+  const { userId } = useAuthCredentials()
+  
   function renderItem({item}: ListRenderItemInfo<PostComment>) {
     return (
       <PostCommentItem
         postId={postId}
         postAuthorId={authorId}
-        userId={id}
+        userId={userId}
         postComment={item}
       />
     );

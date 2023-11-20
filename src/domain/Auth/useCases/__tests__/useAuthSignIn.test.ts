@@ -1,4 +1,4 @@
-import {wrapperAllProviders, waitFor, renderHook} from 'test-utils';
+import {wrapAllProviders, waitFor, renderHook} from 'test-utils';
 
 import {authService} from '../../authService';
 import {useAuthSignIn} from '../useAuthSignIn';

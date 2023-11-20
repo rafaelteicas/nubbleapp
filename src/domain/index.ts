@@ -8,6 +8,7 @@ export * from './PostComment/useCases/usePostCommentRemove';
 export * from './PostComment/postCommentAdapter';
 export * from './PostComment/postCommentService';
 export * from './PostComment/postCommentTypes';
+export * from './PostComment/postCommentApi';
 
 export * from './User/useCases/useUserGetById';
 export * from './User/userAdapter';

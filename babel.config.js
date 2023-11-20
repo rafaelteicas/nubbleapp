@@ -4,22 +4,23 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./src'],
+        root: '.',
         alias: {
           '@components': './src/components',
           '@hooks': './src/hooks',
-          '@theme': './src/theme',
-          '@screens': './src/screens',
           '@routes': './src/routes',
+          '@screens': './src/screens',
+          '@theme': './src/theme',
           '@domain': './src/domain',
           '@brand': './src/brand',
           '@api': './src/api',
           '@types': './src/types',
           '@utils': './src/utils',
           '@infra': './src/infra',
-          '@services': './src/services'
-        }
-      }
-    ]
-  ]
-}
+          '@services': './src/services',
+          '@test': './src/test',
+        },
+      },
+    ],
+  ],
+};

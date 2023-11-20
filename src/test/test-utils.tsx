@@ -1,50 +1,82 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {ThemeProvider} from '@shopify/restyle';
-
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {
-  RenderHookOptions,
+  QueryClient,
+  QueryClientProvider,
+  QueryClientConfig,
+} from '@tanstack/react-query';
+import {
   RenderOptions,
   render,
   renderHook,
+  RenderHookOptions,
 } from '@testing-library/react-native';
 
 import {theme} from '@theme';
+import { AuthCredentialsProvider } from '@services';
+import { Toast } from '@components';
 
-export const wrapperAllProviders = () => {
-  const queryClient = new QueryClient({
-    logger: {
-      log: console.log,
-      warn: console.warn,
-      error: process.env.NODE_ENV === 'test' ? () => {} : console.error,
+const queryClientConfig: QueryClientConfig = {
+  logger: {
+    log: console.log,
+    warn: console.warn,
+    // ✅ no more errors on the console for tests
+    //@ts-ignore
+    error: process.env.NODE_ENV === 'test' ? () => {} : console.error,
+  },
+  defaultOptions: {
+    queries: {
+      retry: false,
+      cacheTime: Infinity,
     },
-    defaultOptions: {
-      queries: {
-        retry: false,
-        cacheTime: Infinity,
-      },
-      mutations: {
-        retry: false,
-        cacheTime: Infinity,
-      },
+    mutations: {
+      retry: false,
+      cacheTime: Infinity,
     },
-  });
+  },
+};
+
+export const wrapAllProviders = () => {
+  const queryClient = new QueryClient(queryClientConfig);
+
   return ({children}: {children: React.ReactNode}) => (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>{children}</NavigationContainer>
+        <NavigationContainer>{children} </NavigationContainer>
       </ThemeProvider>
     </QueryClientProvider>
   );
 };
 
 function customRender<T = unknown>(
-  ui: React.ReactElement<T>,
+  component: ReactElement<T>,
   options?: Omit<RenderOptions, 'wrapper'>,
 ) {
-  return render(ui, {wrapper: wrapperAllProviders(), ...options});
+  return render(component, {wrapper: wrapAllProviders(), ...options});
+}
+
+export const wrapScreenProviders = () => {
+  const queryClient = new QueryClient(queryClientConfig);
+
+  return ({children}: {children: React.ReactNode}) => (
+    <AuthCredentialsProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <NavigationContainer>{children} </NavigationContainer>
+          <Toast />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </AuthCredentialsProvider>
+  );
+};
+
+export function renderScreen<T = unknown>(
+  component: ReactElement<T>,
+  options?: Omit<RenderOptions, 'wrapper'>,
+) {
+  return render(component, {wrapper: wrapScreenProviders(), ...options});
 }
 
 function customRenderHook<Result, Props>(
@@ -52,7 +84,7 @@ function customRenderHook<Result, Props>(
   options?: Omit<RenderHookOptions<Props>, 'wrapper'>,
 ) {
   return renderHook(renderCallback, {
-    wrapper: wrapperAllProviders(),
+    wrapper: wrapAllProviders(),
     ...options,
   });
 }
