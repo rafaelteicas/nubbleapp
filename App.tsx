@@ -1,14 +1,19 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import {SafeAreaView} from 'react-native';
+import React, {Component} from 'react';
+import {Text} from './src/components/Text/Text';
+import {ThemeProvider} from '@shopify/restyle';
+import {theme} from './src/theme/theme';
 
 export class App extends Component {
   render() {
     return (
-      <View style={{backgroundColor: "orange", width: '100%', height: '100%'}}>
-        <Text>sadkaskd</Text>
-      </View>
-    )
+      <ThemeProvider theme={theme}>
+        <SafeAreaView>
+          <Text preset="headingLarge">Ola</Text>
+        </SafeAreaView>
+      </ThemeProvider>
+    );
   }
 }
 
-export default App
+export default App;
