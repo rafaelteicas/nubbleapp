@@ -30,6 +30,7 @@ import {
   BookMarkFillIcon,
   BookMarkIcon,
 } from '../../assets/icons';
+import {Pressable} from 'react-native';
 
 export interface IconBase {
   color?: string;
@@ -40,11 +41,19 @@ interface Props {
   name: IconName;
   color?: ThemeColors;
   size?: number;
+  onPress?: () => void;
 }
 
-export function Icon({name, color = 'primary', size = 24}: Props) {
+export function Icon({name, color = 'primary', size = 24, onPress}: Props) {
   const SVGIcon = iconRegistry[name];
   const {colors} = useAppTheme();
+  if (onPress) {
+    return (
+      <Pressable hitSlop={10} onPress={onPress}>
+        <SVGIcon color={colors[color]} size={size} />
+      </Pressable>
+    );
+  }
   return <SVGIcon color={colors[color]} size={size} />;
 }
 
