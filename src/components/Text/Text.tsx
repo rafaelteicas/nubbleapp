@@ -63,18 +63,20 @@ type TextVariants =
   | 'paragraphMedium'
   | 'paragraphSmall';
 
-const $fontSizes: Record<TextVariants, {fontSize: number; lineHeight: number}> =
-  {
-    headingLarge: {fontSize: 32, lineHeight: 38.4},
-    headingMedium: {fontSize: 22, lineHeight: 26.4},
-    headingSmall: {fontSize: 18, lineHeight: 23.4},
+export const $fontSizes: Record<
+  TextVariants,
+  {fontSize: number; lineHeight: number}
+> = {
+  headingLarge: {fontSize: 32, lineHeight: 38.4},
+  headingMedium: {fontSize: 22, lineHeight: 26.4},
+  headingSmall: {fontSize: 18, lineHeight: 23.4},
 
-    paragraphLarge: {fontSize: 18, lineHeight: 25.2},
-    paragraphMedium: {fontSize: 16, lineHeight: 22.4},
-    paragraphSmall: {fontSize: 14, lineHeight: 19.6},
-  };
+  paragraphLarge: {fontSize: 18, lineHeight: 25.2},
+  paragraphMedium: {fontSize: 16, lineHeight: 22.4},
+  paragraphSmall: {fontSize: 14, lineHeight: 19.6},
+};
 
-const $fontFamily = {
+export const $fontFamily = {
   black: 'Satoshi-Black',
   blackItalic: 'Satoshi-BlackItalic',
   bold: 'Satoshi-Bold',
