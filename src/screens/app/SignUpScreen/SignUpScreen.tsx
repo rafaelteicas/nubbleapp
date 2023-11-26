@@ -4,8 +4,23 @@ import {Text} from '../../../components/Text/Text';
 import {TextInput} from '../../../components/TextInput/TextInput';
 import {Button} from '../../../components/Button/Button';
 import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../routes/Routes';
 
-export function SignUpScreen() {
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
+
+export function SignUpScreen({navigation}: ScreenProps) {
+  function submitForm() {
+    navigation.navigate('SuccessScreen', {
+      title: 'Sua conta foi criada com sucesso!',
+      description: 'Agora é só fazer login na nossa plataforma',
+      icon: {
+        name: 'checkRound',
+        color: 'success',
+      },
+    });
+  }
+
   return (
     <Screen canGoBack scrollable>
       <Text mb="s32" preset="headingLarge">
@@ -27,7 +42,7 @@ export function SignUpScreen() {
         placeholder="Digite sua senha"
         boxProps={{mb: 's16'}}
       />
-      <Button mt="s48" title="Criar minha conta" />
+      <Button mt="s48" title="Criar minha conta" onPress={submitForm} />
     </Screen>
   );
 }
