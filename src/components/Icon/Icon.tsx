@@ -29,22 +29,24 @@ import {
   SearchIcon,
   BookMarkFillIcon,
   BookMarkIcon,
+  CheckRoundIcon,
 } from '../../assets/icons';
 import {Pressable} from 'react-native';
+import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
 
 export interface IconBase {
   color?: string;
   size?: number;
 }
 
-interface Props {
+export interface IconProps {
   name: IconName;
   color?: ThemeColors;
   size?: number;
   onPress?: () => void;
 }
 
-export function Icon({name, color = 'primary', size = 24, onPress}: Props) {
+export function Icon({name, color = 'primary', size = 24, onPress}: IconProps) {
   const SVGIcon = iconRegistry[name];
   const {colors} = useAppTheme();
   if (onPress) {
@@ -68,6 +70,7 @@ const iconRegistry = {
   chat: ChatIcon,
   chatOn: ChatOnIcon,
   check: CheckIcon,
+  checkRound: CheckRoundIcon,
   comment: CommentIcon,
   chevronRight: ChevronRightIcon,
   eyeOn: EyeOnIcon,
@@ -79,6 +82,7 @@ const iconRegistry = {
   home: HomeIcon,
   homeFill: HomeFillIcon,
   message: MessageIcon,
+  messageRound: MessageRoundIcon,
   newPost: NewPostIcon,
   profile: ProfileIcon,
   profileFill: ProfileFillIcon,
