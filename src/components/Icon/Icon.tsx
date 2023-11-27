@@ -30,9 +30,9 @@ import {
   BookMarkFillIcon,
   BookMarkIcon,
   CheckRoundIcon,
+  MessageRoundIcon,
 } from '../../assets/icons';
 import {Pressable} from 'react-native';
-import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
 
 export interface IconBase {
   color?: string;

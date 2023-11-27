@@ -28,3 +28,4 @@ export * from './ProfileIcon';
 export * from './HeartIcon';
 export * from './SearchIcon';
 export * from './SettingsIcon';
+export * from './MessageRoundIcon';
