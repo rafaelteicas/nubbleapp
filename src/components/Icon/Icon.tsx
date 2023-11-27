@@ -1,6 +1,6 @@
 import React from 'react';
-import {ThemeColors} from '../../theme/theme';
-import {useAppTheme} from '../../hooks/useAppTheme';
+import {Pressable} from 'react-native';
+
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -32,7 +32,8 @@ import {
   CheckRoundIcon,
   MessageRoundIcon,
 } from '../../assets/icons';
-import {Pressable} from 'react-native';
+import {useAppTheme} from '../../hooks/useAppTheme';
+import {ThemeColors} from '../../theme/theme';
 
 export interface IconBase {
   color?: string;
