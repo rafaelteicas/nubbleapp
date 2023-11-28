@@ -63,7 +63,8 @@ type TextVariants =
   | 'headingSmall'
   | 'paragraphLarge'
   | 'paragraphMedium'
-  | 'paragraphSmall';
+  | 'paragraphSmall'
+  | 'paragraphCaption';
 
 export const $fontSizes: Record<
   TextVariants,
@@ -76,6 +77,7 @@ export const $fontSizes: Record<
   paragraphLarge: {fontSize: 18, lineHeight: 25.2},
   paragraphMedium: {fontSize: 16, lineHeight: 22.4},
   paragraphSmall: {fontSize: 14, lineHeight: 19.6},
+  paragraphCaption: {fontSize: 12, lineHeight: 19.6},
 };
 
 export const $fontFamily = {
