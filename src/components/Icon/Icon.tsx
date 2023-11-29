@@ -47,7 +47,12 @@ export interface IconProps {
   onPress?: () => void;
 }
 
-export function Icon({name, color = 'primary', size = 24, onPress}: IconProps) {
+export function Icon({
+  name,
+  color = 'backgroundContrast',
+  size = 24,
+  onPress,
+}: IconProps) {
   const SVGIcon = iconRegistry[name];
   const {colors} = useAppTheme();
   if (onPress) {
