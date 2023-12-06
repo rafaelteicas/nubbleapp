@@ -1,11 +1,18 @@
 import React from 'react';
 
 import {Post} from '@domain';
+import {useNavigation} from '@react-navigation/native';
 
 import {Box, Text} from '@components';
 
-type Props = Pick<Post, 'author' | 'text' | 'commentCount'>;
-export function PostBottom({author, commentCount, text}: Props) {
+type Props = Pick<Post, 'author' | 'text' | 'commentCount' | 'id'>;
+export function PostBottom({author, commentCount, text, id}: Props) {
+  const {navigate} = useNavigation();
+  function navigateToPostCommentScreen() {
+    navigate('PostCommentScreen', {
+      postId: id,
+    });
+  }
   return (
     <Box mt="s16">
       <Text preset="paragraphMedium" bold>
@@ -14,7 +21,12 @@ export function PostBottom({author, commentCount, text}: Props) {
       <Text preset="paragraphMedium" color="gray1">
         {text}
       </Text>
-      <Text mt="s4" preset="paragraphSmall" bold color="primary">
+      <Text
+        mt="s4"
+        preset="paragraphSmall"
+        bold
+        color="primary"
+        onPress={navigateToPostCommentScreen}>
         {getCommentText(commentCount)}
       </Text>
     </Box>
