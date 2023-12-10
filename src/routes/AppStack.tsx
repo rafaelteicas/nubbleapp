@@ -12,6 +12,7 @@ export type AppStackParamList = {
   SettingsScreen: undefined;
   PostCommentScreen: {
     postId: number;
+    authorId: number;
   };
 };
 
@@ -27,15 +28,15 @@ export function AppStack() {
       initialRouteName="AppTabNavigator">
       <Stack.Screen
         name="AppTabNavigator"
-        children={AppTabNavigator}
+        component={AppTabNavigator}
         key="AppTabNavigator"
       />
       <Stack.Screen
         name="PostCommentScreen"
-        children={PostCommentScreen}
+        component={PostCommentScreen}
         key="PostCommentScreen"
       />
-      <Stack.Screen name="SettingsScreen" children={SettingsScreen} />
+      <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
     </Stack.Navigator>
   );
 }

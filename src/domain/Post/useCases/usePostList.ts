@@ -1,4 +1,5 @@
-import {usePaginatedList} from '../../hooks/usePaginatedList';
+import {usePaginatedList} from '@infra';
+
 import {postService} from '../postService';
 import {Post} from '../postTypes';
 

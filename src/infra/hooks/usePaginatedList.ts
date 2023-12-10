@@ -16,6 +16,7 @@ export function usePaginatedList<Data>(
       setError(null);
       setLoading(true);
       const {data, meta} = await getList(1);
+
       setList(data);
       if (meta.hasNextPage) {
         setPage(2);
@@ -61,5 +62,6 @@ export function usePaginatedList<Data>(
     loading,
     fetchNextPage,
     refresh: fetchInitialData,
+    hasNextPage,
   };
 }
