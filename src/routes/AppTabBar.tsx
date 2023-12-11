@@ -1,5 +1,4 @@
 import React from 'react';
-import {ViewStyle} from 'react-native';
 
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 
@@ -13,17 +12,10 @@ import {
   TouchableOpacityBoxProps,
 } from '@components';
 import {useAppSafeArea} from '@hooks';
+import {$shadowProps} from '@theme';
 
 import {AppTabBottomTabParamList} from './AppTabNavigator';
 import {mapScreenToProps} from './mapScreenToProps';
-
-const $shadowProps: ViewStyle = {
-  elevation: 10,
-  shadowColor: '#000',
-  shadowOpacity: 0.05,
-  shadowRadius: 12,
-  shadowOffset: {width: 0, height: -3},
-};
 
 export function AppTabBar({state, descriptors, navigation}: BottomTabBarProps) {
   const {bottom} = useAppSafeArea();

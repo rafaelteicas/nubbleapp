@@ -6,6 +6,7 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        'react-native/no-inline-styles': 0,
         'import/order': [
           'error',
           {
