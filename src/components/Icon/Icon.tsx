@@ -31,6 +31,7 @@ import {
   BookMarkIcon,
   CheckRoundIcon,
   MessageRoundIcon,
+  ErrorRoundIcon,
 } from '../../assets/icons';
 import {useAppTheme} from '../../hooks/useAppTheme';
 import {ThemeColors} from '../../theme/theme';
@@ -81,6 +82,7 @@ const iconRegistry = {
   chevronRight: ChevronRightIcon,
   eyeOn: EyeOnIcon,
   eyeOff: EyeOffIcon,
+  errorRound: ErrorRoundIcon,
   flashOn: FlashOnIcon,
   flashOff: FlashOffIcon,
   heart: HeartIcon,
