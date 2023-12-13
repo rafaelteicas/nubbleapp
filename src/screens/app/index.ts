@@ -4,3 +4,4 @@ export * from './NewPostScreen/NewPostScreen';
 export * from './FavoriteScreen/FavoriteScreen';
 export * from './MyProfileScreen/MyProfileScreen';
 export * from './PostCommentScreen/PostCommentScreen';
+export * from './ProfileScreen/ProfileScreen';

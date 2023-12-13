@@ -9,22 +9,21 @@ import {Box, ProfileAvatar, Text} from '@components';
 import {postCommentService} from '../../../../domain/PostComment/postCommentService';
 
 type Props = {
+  postId: number;
   postComment: PostComment;
   userId: number;
   postAuthorId: number;
-  onRemoveComment: () => void;
 };
 
 export function PostCommentItem({
+  postId,
   postComment,
   postAuthorId,
   userId,
-  onRemoveComment,
 }: Props) {
   const {showToast} = useToastService();
-  const {mutate} = usePostCommentRemove({
+  const {mutate} = usePostCommentRemove(postId, {
     onSuccess: () => {
-      onRemoveComment();
       showToast({message: 'Comentário deletado', position: 'top'});
     },
   });
@@ -38,7 +37,7 @@ export function PostCommentItem({
     Alert.alert('Deseja excluir o comentário', 'Pressione confirmar', [
       {
         text: 'Confirmar',
-        onPress: () => mutate(postComment.id),
+        onPress: () => mutate({postCommentId: postComment.id}),
       },
       {
         text: 'Cancelar',

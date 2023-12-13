@@ -1,9 +1,9 @@
 export interface MetaDataPage {
-  total: number;
-  perPage: number;
-  currentPage: number;
-  lastPage: number;
-  firstPage: number;
+  total: number; // 24;
+  perPage: number; // 10;
+  currentPage: number; // 1;
+  lastPage: number; // 3;
+  firstPage: number; // 1;
   hasNextPage: boolean;
   hasPreviousPage: boolean;
 }
