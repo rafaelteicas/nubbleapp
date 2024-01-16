@@ -1,7 +1,9 @@
 import React from 'react';
 
+import {useAuthSignUp} from '@domain';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
+import {AuthStackParamList} from 'src/routes/AuthStack';
 
 import {
   Button,
@@ -15,9 +17,23 @@ import {AuthScreenProps} from '@routes';
 
 import {SignUpSchema, signUpSchema} from './signUpSchema';
 
+const resetParam: AuthStackParamList['SuccessScreen'] = {
+  title: 'Sua conta foi criada com sucesso!',
+  description: 'Agora é só fazer login na nossa plataforma',
+  icon: {
+    name: 'checkRound',
+    color: 'success',
+  },
+};
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
   const {reset} = useResetNavigationSuccess();
+  const {signUp, isLoading} = useAuthSignUp({
+    onSuccess: () => {
+      reset(resetParam);
+    },
+  });
   const {control, formState, handleSubmit} = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -30,15 +46,7 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
     mode: 'onChange',
   });
   function submitForm(formValues: SignUpSchema) {
-    console.log(formValues);
-    // reset({
-    //   title: 'Sua conta foi criada com sucesso!',
-    //   description: 'Agora é só fazer login na nossa plataforma',
-    //   icon: {
-    //     name: 'checkRound',
-    //     color: 'success',
-    //   },
-    // });
+    signUp(formValues);
   }
 
   return (
@@ -82,6 +90,7 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
         boxProps={{mb: 's16'}}
       />
       <Button
+        loading={isLoading}
         disabled={!formState.isValid}
         mt="s48"
         title="Criar minha conta"

@@ -2,7 +2,7 @@ import {api} from '@api';
 
 import {authAdapter} from './authAdapter';
 import {authApi} from './authApi';
-import {AuthCredentials} from './authTypes';
+import {AuthCredentials, SingUpData} from './authTypes';
 
 async function signIn(
   email: string,
@@ -28,9 +28,14 @@ function removeToken() {
   api.defaults.headers.common.Authorization = null;
 }
 
+async function signUp(signUpSchema: SingUpData): Promise<void> {
+  authApi.signUp(signUpSchema);
+}
+
 export const authService = {
   signIn,
   signOut,
   updateToken,
   removeToken,
+  signUp,
 };
