@@ -1,20 +1,15 @@
 import React from 'react';
 
-import {Button, Screen, Text} from '@components';
-import {AppScreenProps} from '@routes';
+import {useAuthSignOut} from '@domain';
 
-export function SettingsScreen({navigation}: AppScreenProps<'SettingsScreen'>) {
+import {Button, Screen, Text} from '@components';
+
+export function SettingsScreen() {
+  const {isLoading, signOut} = useAuthSignOut();
   return (
     <Screen canGoBack>
       <Text>Settings</Text>
-      <Button
-        title="Navegar"
-        onPress={() =>
-          navigation.navigate('AppTabNavigator', {
-            screen: 'HomeScreen',
-          })
-        }
-      />
+      <Button loading={isLoading} title="Sair" onPress={signOut} />
     </Screen>
   );
 }
