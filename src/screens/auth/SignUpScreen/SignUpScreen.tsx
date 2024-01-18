@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useAuthSignUp, useAuthUsernameIsAvailable} from '@domain';
+import {useAuthSignUp} from '@domain';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
 import {AuthStackParamList} from 'src/routes/AuthStack';
@@ -17,6 +17,7 @@ import {useResetNavigationSuccess} from '@hooks';
 import {AuthScreenProps} from '@routes';
 
 import {SignUpSchema, signUpSchema} from './signUpSchema';
+import {useAsyncValidation} from './useAsyncValidation';
 
 const resetParam: AuthStackParamList['SuccessScreen'] = {
   title: 'Sua conta foi criada com sucesso!',
@@ -48,13 +49,7 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
       mode: 'onChange',
     });
 
-  const username = watch('username');
-  const usernameState = getFieldState('username');
-  const usernameIsValid = !usernameState.invalid && usernameState.isDirty;
-  const userNameQuery = useAuthUsernameIsAvailable({
-    username,
-    enabled: usernameIsValid,
-  });
+  const usernameValidation = useAsyncValidation({watch, getFieldState});
 
   function submitForm(formValues: SignUpSchema) {
     signUp(formValues);
@@ -70,12 +65,9 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
         control={control}
         label="Seu username"
         placeholder="@"
-        errorMessage={
-          userNameQuery.isUnavailable ? 'Username não disponível' : undefined
-        }
         boxProps={{mb: 's20'}}
         RightComponent={
-          userNameQuery.isFetching ? (
+          usernameValidation.isFetching ? (
             <ActivityIndicator size={'small'} />
           ) : undefined
         }
@@ -110,7 +102,7 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
       />
       <Button
         loading={isLoading}
-        disabled={!formState.isValid || userNameQuery.isFetching}
+        disabled={!formState.isValid || usernameValidation.notReady}
         mt="s48"
         title="Criar minha conta"
         onPress={handleSubmit(submitForm)}
