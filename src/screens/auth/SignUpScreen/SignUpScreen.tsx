@@ -49,7 +49,10 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
       mode: 'onChange',
     });
 
-  const usernameValidation = useAsyncValidation({watch, getFieldState});
+  const {usernameValidation, emailValidation} = useAsyncValidation({
+    watch,
+    getFieldState,
+  });
 
   function submitForm(formValues: SignUpSchema) {
     signUp(formValues);
@@ -66,6 +69,7 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
         label="Seu username"
         placeholder="@"
         boxProps={{mb: 's20'}}
+        errorMessage={usernameValidation.errorMessage}
         RightComponent={
           usernameValidation.isFetching ? (
             <ActivityIndicator size={'small'} />
@@ -92,6 +96,12 @@ export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
         label="E-mail"
         placeholder="Digite seu e-mail"
         boxProps={{mb: 's16'}}
+        errorMessage={emailValidation.errorMessage}
+        RightComponent={
+          emailValidation.isFetching ? (
+            <ActivityIndicator size={'small'} />
+          ) : undefined
+        }
       />
       <FormPasswordInput
         name="password"
