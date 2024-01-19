@@ -12,18 +12,24 @@ import {
 async function isUserNameAvailable(params: {
   username: string;
 }): Promise<FieldIsAvailableAPI> {
-  const response = await api.get<FieldIsAvailableAPI>('validate-username', {
-    params: params,
-  });
+  const response = await api.get<FieldIsAvailableAPI>(
+    'auth/validate-username',
+    {
+      params: params,
+    },
+  );
   return response.data;
 }
 
 async function isEmailNameAvailable(params: {
   email: string;
 }): Promise<FieldIsAvailableAPI> {
-  const response = await api.get<FieldIsAvailableAPI>('validate-username', {
-    params: params,
-  });
+  const response = await api.get<FieldIsAvailableAPI>(
+    'auth/validate-username',
+    {
+      params: params,
+    },
+  );
   return response.data;
 }
 
@@ -31,7 +37,7 @@ async function signIn(
   email: string,
   password: string,
 ): Promise<AuthCredentialsAPI> {
-  const response = await api.post('login', {
+  const response = await api.post('auth/login', {
     email,
     password,
   });
@@ -39,19 +45,27 @@ async function signIn(
 }
 
 async function signOut(): Promise<string> {
-  const response = await api.get('profile/logout');
+  const response = await api.get('auth/profile/logout');
   return response.data;
 }
 
 async function signUp(data: SingUpDataAPI): Promise<UserAPI> {
-  const response = await api.post('profile/logout', data);
+  const response = await api.post('auth/profile/logout', data);
   return response.data;
 }
 
 async function forgotPassword(
   params: ForgotPasswordParam,
 ): Promise<{message: string}> {
-  const response = await api.post<{message: string}>('forgot-password', params);
+  const response = await api.post<{message: string}>(
+    'auth/forgot-password',
+    params,
+  );
+  return response.data;
+}
+
+async function refreshToken(token: string): Promise<AuthCredentialsAPI> {
+  const response = await api.post('auth/refresh-token', {refreshToken: token});
   return response.data;
 }
 
@@ -62,4 +76,5 @@ export const authApi = {
   isUserNameAvailable,
   isEmailNameAvailable,
   forgotPassword,
+  refreshToken,
 };
