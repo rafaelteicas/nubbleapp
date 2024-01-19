@@ -6,15 +6,14 @@ import {authService} from '../authService';
 export function useAuthSignOut() {
   const {remove} = useAuthCredentials();
   const mutation = useMutation<string, unknown, void>({
-    mutationFn: () => authService.signOut(),
+    mutationFn: authService.signOut,
     retry: false,
-    onSuccess: () => {
-      authService.removeToken();
+    onSettled: () => {
       remove();
     },
   });
   return {
     isLoading: mutation.isLoading,
-    signOut: () => mutation.mutate,
+    signOut: () => mutation.mutate(),
   };
 }
