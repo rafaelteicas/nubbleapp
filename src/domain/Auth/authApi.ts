@@ -1,4 +1,5 @@
 import {api} from '@api';
+import {AxiosRequestConfig} from 'axios';
 
 import {UserAPI} from '../User/userTypes';
 
@@ -69,6 +70,11 @@ async function refreshToken(token: string): Promise<AuthCredentialsAPI> {
   return response.data;
 }
 
+function isRefreshTokenRequest(request: AxiosRequestConfig): boolean {
+  const url = request.url;
+  return url === 'auth/refresh-token';
+}
+
 export const authApi = {
   signIn,
   signOut,
@@ -77,4 +83,5 @@ export const authApi = {
   isEmailNameAvailable,
   forgotPassword,
   refreshToken,
+  isRefreshTokenRequest,
 };
