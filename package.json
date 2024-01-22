@@ -62,6 +62,16 @@
     "react-test-renderer": "18.2.0",
     "typescript": "*"
   },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverageFrom": [
+      "src/{components,utils}/**/*.{js,jsx,ts,tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "index"
+    ]
+  },
   "engines": {
     "node": ">=16"
   }
