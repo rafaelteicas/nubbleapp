@@ -5,16 +5,14 @@ import {RenderOptions, render} from '@testing-library/react-native';
 
 import {theme} from '@theme';
 
-const AllTheProvides = ({children}: {children: React.ReactNode}) => {
+const AllTheProviders = ({children}: {children: React.ReactNode}) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-function customRender(
+const customRender = (
   ui: React.ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>,
-) {
-  render(ui, {wrapper: AllTheProvides, ...options});
-}
+) => render(ui, {wrapper: AllTheProviders, ...options});
 
 export * from '@testing-library/react-native';
 export {customRender as render};
