@@ -5,7 +5,7 @@
     "paths": {
       "@components": ["src/components"],
       "@hooks": ["./src/hooks"],
-      "@routes":[ "./src/routes"],
+      "@routes": ["./src/routes"],
       "@screens": ["./src/screens"],
       "@theme": ["./src/theme"],
       "@domain": ["./src/domain"],
@@ -15,6 +15,7 @@
       "@utils": ["./src/utils"],
       "@infra": ["./src/infra"],
       "@services": ["./src/services"],
+      "test-utils": ["./src/test/test-utils"]
     }
   }
 }

@@ -69,6 +69,10 @@
     "collectCoverageFrom": [
       "src/{components,utils}/**/*.{js,jsx,ts,tsx}"
     ],
+    "moduleDirectories": [
+      "node_modules",
+      "./src/test"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "index"
