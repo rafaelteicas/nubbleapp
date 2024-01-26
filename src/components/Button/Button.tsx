@@ -26,7 +26,8 @@ export function Button({
   const buttonPreset = buttonPresets[preset][disabled ? 'disabled' : 'default'];
   return (
     <TouchableOpacityBox
-      disabled={disabled}
+      testID="button"
+      disabled={disabled || loading}
       paddingHorizontal="s20"
       height={50}
       alignItems="center"

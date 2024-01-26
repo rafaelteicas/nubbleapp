@@ -17,6 +17,10 @@ export function ActivityIndicator({
 }: Props) {
   const {colors} = useAppTheme();
   return (
-    <RNActivityIndicator color={colors[color]} {...activityIndicatorProps} />
+    <RNActivityIndicator
+      testID="activity-indicator"
+      color={colors[color]}
+      {...activityIndicatorProps}
+    />
   );
 }
