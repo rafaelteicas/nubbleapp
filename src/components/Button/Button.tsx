@@ -9,7 +9,7 @@ import {
 
 import {ButtonPreset, buttonPresets} from './buttonPresets';
 
-interface ButtonProps extends TouchableOpacityBoxProps {
+export interface ButtonProps extends TouchableOpacityBoxProps {
   title?: string;
   loading?: boolean;
   preset?: ButtonPreset;
