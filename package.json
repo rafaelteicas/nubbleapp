@@ -66,6 +66,7 @@
   "jest": {
     "preset": "react-native",
     "setupFilesAfterEnv": ["@testing-library/react-native/extend-expect"],
+    "setupFiles": ["<rootDir>/src/test/jestSetup.ts"],
     "collectCoverageFrom": [
       "src/{components,utils}/**/*.{js,jsx,ts,tsx}"
     ],
