@@ -73,6 +73,9 @@
       "node_modules",
       "./src/test"
     ],
+    "modulePathIgnorePatterns": [
+      ".*/mockedData/.*"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "index"
