@@ -11,7 +11,7 @@ import {postCommentService} from '../../../../domain/PostComment/postCommentServ
 type Props = {
   postId: number;
   postComment: PostComment;
-  userId: number;
+  userId: number | null;
   postAuthorId: number;
 };
 
