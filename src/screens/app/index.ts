@@ -5,3 +5,4 @@ export * from './FavoriteScreen/FavoriteScreen';
 export * from './MyProfileScreen/MyProfileScreen';
 export * from './PostCommentScreen/PostCommentScreen';
 export * from './ProfileScreen/ProfileScreen';
+export * from './SearchScreen/SearchScreen';

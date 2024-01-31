@@ -5,8 +5,6 @@ import {useMutation} from '@tanstack/react-query';
 import {authService} from '../authService';
 import {AuthCredentials} from '../authTypes';
 
-import {mockedAuthCredentials} from './__tests__/mockedData/mocks';
-
 interface Variables {
   email: string;
   password: string;
@@ -22,9 +20,8 @@ export function useAuthSignIn(options?: MutationOptions<AuthCredentials>) {
       if (options?.onSuccess) {
         options.onSuccess(authCredentials);
       }
-      // authService.updateToken(authCredentials.token);
-      // saveCredentials(authCredentials);
-      saveCredentials(mockedAuthCredentials);
+      authService.updateToken(authCredentials.token);
+      saveCredentials(authCredentials);
     },
     onError: error => {
       if (options?.onError) {

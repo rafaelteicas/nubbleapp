@@ -34,7 +34,7 @@ export function Screen({
       <Container backgroundColor={colors.background}>
         <Box
           paddingHorizontal="s24"
-          style={[{paddingTop: top, paddingBottom: bottom, flex: 1}, style]}
+          style={[{paddingTop: top, paddingBottom: bottom}, style]}
           {...boxProps}>
           <ScreenHeader
             HeaderComponent={HeaderComponent}

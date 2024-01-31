@@ -25,6 +25,7 @@ export function ScreenHeader({canGoBack, title, HeaderComponent}: Props) {
           flexDirection="row"
           alignItems="center"
           mr="s10"
+          mt="s10"
           onPress={navigation.goBack}>
           <Icon size={ICON_SIZE} name="arrowLeft" color="primary" />
           {showBackLabel && (
