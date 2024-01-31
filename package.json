@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest --verbose --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "ap": "adb shell input text",
+    "pre-commit": "yarn lint && yarn tsc --noEmit && yarn test"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
