@@ -2,18 +2,21 @@ import React, {useState} from 'react';
 import {FlatList, ListRenderItemInfo} from 'react-native';
 
 import {User, useUserSearch} from '@domain';
+import {useSearchHistoryService} from '@services';
 
 import {Icon, ProfileUser, Screen, TextInput} from '@components';
 import {useDebounce} from '@hooks';
 
+import {SearchHistory} from './components/SearchHistory/SearchHistory';
+
 export function SearchScreen() {
   const [search, setSearch] = useState<string>('');
   const debouncedSearch = useDebounce(search);
-
+  const {addUser} = useSearchHistoryService();
   const {list} = useUserSearch(debouncedSearch);
 
   function renderItem({item}: ListRenderItemInfo<User>) {
-    return <ProfileUser user={item} />;
+    return <ProfileUser user={item} onPress={() => addUser(item)} />;
   }
 
   return (
@@ -27,11 +30,15 @@ export function SearchScreen() {
           LeftComponent={<Icon name="search" color="gray3" />}
         />
       }>
-      <FlatList
-        data={list}
-        renderItem={renderItem}
-        keyExtractor={item => item.id.toString()}
-      />
+      {search.length === 0 ? (
+        <SearchHistory />
+      ) : (
+        <FlatList
+          data={list}
+          renderItem={renderItem}
+          keyExtractor={item => item.id.toString()}
+        />
+      )}
     </Screen>
   );
 }

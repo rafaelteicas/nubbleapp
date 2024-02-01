@@ -4,7 +4,7 @@ import {Storage} from '../storage';
 
 export const MMKVInstance = new MMKV();
 
-export const mmkvStorage: Storage = {
+export const MMKVStorage: Storage = {
   getItem: key => {
     const item = MMKVInstance.getString(key);
     if (item) {

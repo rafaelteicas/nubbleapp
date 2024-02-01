@@ -1,22 +1,25 @@
 import React, {Component} from 'react';
 
-import {
-  AuthCredentialsProvider,
-  initializeStorage,
-  mmkvStorage,
-} from '@services';
+// import {
+//   AuthCredentialsProvider,
+//   initializeStorage,
+//   mmkvStorage,
+// } from '@services';
 import {ThemeProvider} from '@shopify/restyle';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {Toast} from '@components';
+import {Routes} from '@routes';
+import {theme} from '@theme';
 
-import {Routes} from './src/routes/Routes';
-import {theme} from './src/theme/theme';
+import {AuthCredentialsProvider} from './src/services/authCredentials/providers/AuthCredentialsProvider';
+import {MMKVStorage} from './src/services/storage/implementation/MMKVStorage';
+import {initializeStorage} from './src/services/storage/storage';
 
 const queryClient = new QueryClient();
 
-initializeStorage(mmkvStorage);
+initializeStorage(MMKVStorage);
 
 export class App extends Component {
   render() {
