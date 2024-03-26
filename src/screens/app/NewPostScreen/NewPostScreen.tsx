@@ -7,7 +7,7 @@ import {
   Pressable,
 } from 'react-native';
 
-import {useCameraRoll} from '@services';
+import {useCameraRoll, usePermission} from '@services';
 
 import {Screen} from '@components';
 
@@ -18,8 +18,12 @@ const ITEM_WIDTH = SCREEN_WIDTH / 4;
 const NUM_COLUMNS = 4;
 
 export function NewPostScreen() {
+  const permission = usePermission('camera');
   const [selectedImage, setSelectedImage] = useState('');
-  const {photoList, fetchNextPage} = useCameraRoll(true, setSelectedImage);
+  const {photoList, fetchNextPage} = useCameraRoll(
+    permission.status === 'granted',
+    setSelectedImage,
+  );
 
   const flatListRef = useRef<FlatList>(null);
 
