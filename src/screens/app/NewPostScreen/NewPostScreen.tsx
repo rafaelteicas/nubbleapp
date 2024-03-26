@@ -9,7 +9,7 @@ import {
 
 import {useCameraRoll, usePermission} from '@services';
 
-import {Screen} from '@components';
+import {PermissionManager, Screen} from '@components';
 
 import {Header} from './components/Header';
 
@@ -44,18 +44,22 @@ export function NewPostScreen() {
   }
 
   return (
-    <Screen canGoBack noPaddingHorizontal title="Novo post">
-      <FlatList
-        ref={flatListRef}
-        data={photoList}
-        renderItem={renderItem}
-        numColumns={NUM_COLUMNS}
-        ListHeaderComponent={
-          <Header imageUri={selectedImage} width={SCREEN_WIDTH} />
-        }
-        onEndReached={fetchNextPage}
-        onEndReachedThreshold={0.3}
-      />
-    </Screen>
+    <PermissionManager
+      permissionName={'camera'}
+      description="Permita o nubble acessar as imagens da sua galeria!">
+      <Screen canGoBack noPaddingHorizontal title="Novo post">
+        <FlatList
+          ref={flatListRef}
+          data={photoList}
+          renderItem={renderItem}
+          numColumns={NUM_COLUMNS}
+          ListHeaderComponent={
+            <Header imageUri={selectedImage} width={SCREEN_WIDTH} />
+          }
+          onEndReached={fetchNextPage}
+          onEndReachedThreshold={0.3}
+        />
+      </Screen>
+    </PermissionManager>
   );
 }
