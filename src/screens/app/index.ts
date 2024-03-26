@@ -7,3 +7,4 @@ export * from './PostCommentScreen/PostCommentScreen';
 export * from './ProfileScreen/ProfileScreen';
 export * from './SearchScreen/SearchScreen';
 export * from './CameraScreen/CameraScreen';
+export * from './PublishPostScreen/PublishPostScreen';

@@ -9,6 +9,7 @@ import {
   ProfileScreen,
   SearchScreen,
   CameraScreen,
+  PublishPostScreen,
 } from '@screens';
 
 import {AppTabBottomTabParamList, AppTabNavigator} from './AppTabNavigator';
@@ -25,6 +26,9 @@ export type AppStackParamList = {
   };
   SearchScreen: undefined;
   CameraScreen: undefined;
+  PublishPostScreen: {
+    imageUri: string;
+  };
 };
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
@@ -55,6 +59,7 @@ export function AppStack({initialRouteName = 'AppTabNavigator'}: Props) {
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <Stack.Screen name="SearchScreen" component={SearchScreen} />
       <Stack.Screen name="CameraScreen" component={CameraScreen} />
+      <Stack.Screen name="PublishPostScreen" component={PublishPostScreen} />
     </Stack.Navigator>
   );
 }
