@@ -30,3 +30,4 @@ export * from './SearchIcon';
 export * from './SettingsIcon';
 export * from './MessageRoundIcon';
 export * from './ErrorRoundIcon';
+export * from './CameraClickIcon';

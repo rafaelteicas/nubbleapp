@@ -32,6 +32,7 @@ import {
   CheckRoundIcon,
   MessageRoundIcon,
   ErrorRoundIcon,
+  CameraClickIcon,
 } from '../../assets/icons';
 import {useAppTheme} from '../../hooks/useAppTheme';
 import {ThemeColors} from '../../theme/theme';
@@ -97,6 +98,7 @@ const iconRegistry = {
   search: SearchIcon,
   settings: SettingsIcon,
   trash: TrashIcon,
+  cameraClick: CameraClickIcon,
 };
 
 type IconType = typeof iconRegistry;
