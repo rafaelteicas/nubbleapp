@@ -1134,7 +1134,7 @@ PODS:
   - RNSVG (14.1.0):
     - React-Core
   - SocketRocket (0.6.1)
-  - VisionCamera (3.9.1):
+  - VisionCamera (3.9.2):
     - React
     - React-callinvoker
     - React-Core
@@ -1426,9 +1426,9 @@ SPEC CHECKSUMS:
   RNScreens: 6bd63b7b2c2fbfd1fe7e737bc4c64f41fb7650a2
   RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  VisionCamera: 52f98e7628f9deea3e311c3b6d4870bb44445e05
+  VisionCamera: 36c460338692788a0d377dce7d32f8ba049fb4f2
   Yoga: 805bf71192903b20fc14babe48080582fee65a80
 
-PODFILE CHECKSUM: b43070b5e7c35a12352f724d8d1bc04ccf1c8a52
+PODFILE CHECKSUM: 57e48329dfb97a5881bf790ff54ccf622f90bbb2
 
 COCOAPODS: 1.15.2
