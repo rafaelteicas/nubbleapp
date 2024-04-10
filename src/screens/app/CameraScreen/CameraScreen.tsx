@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react';
 import {Dimensions, StyleSheet} from 'react-native';
 
 import {useIsFocused} from '@react-navigation/native';
+import {prepareImageUri} from '@services';
 import {
   Camera,
   Templates,
@@ -42,9 +43,11 @@ export function CameraScreen({navigation}: AppScreenProps<'CameraScreen'>) {
       qualityPrioritization: 'quality',
     });
 
-    navigation.navigate('PublishPostScreen', {
-      imageUri: `file://${photoFile?.path}`,
-    });
+    if (photoFile) {
+      navigation.navigate('PublishPostScreen', {
+        imageUri: prepareImageUri(photoFile.path),
+      });
+    }
   }
 
   function toggleFlash() {
