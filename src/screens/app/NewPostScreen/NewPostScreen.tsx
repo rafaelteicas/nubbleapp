@@ -19,7 +19,7 @@ const NUM_COLUMNS = 4;
 
 export function NewPostScreen() {
   const permission = usePermission('camera');
-  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedImage, setSelectedImage] = useState<string>();
   const {photoList, fetchNextPage} = useMultimediaGetPhotos(
     permission.status === 'granted',
     setSelectedImage,

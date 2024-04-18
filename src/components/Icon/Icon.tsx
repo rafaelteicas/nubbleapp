@@ -40,11 +40,13 @@ import {ThemeColors} from '../../theme/theme';
 export interface IconBase {
   color?: string;
   size?: number;
+  fillColor?: string;
 }
 
 export interface IconProps {
   name: IconName;
   color?: ThemeColors;
+  fillColor?: ThemeColors;
   size?: number;
   onPress?: () => void;
 }
@@ -53,14 +55,22 @@ export function Icon({
   name,
   color = 'backgroundContrast',
   size = 24,
+  fillColor = 'background',
   onPress,
 }: IconProps) {
   const SVGIcon = iconRegistry[name];
   const {colors} = useAppTheme();
+
+  const iconProps: React.ComponentProps<typeof SVGIcon> = {
+    size,
+    color: colors[color],
+    fillColor: colors[fillColor],
+  };
+
   if (onPress) {
     return (
       <Pressable testID={name} hitSlop={10} onPress={onPress}>
-        <SVGIcon color={colors[color]} size={size} />
+        <SVGIcon {...iconProps} />
       </Pressable>
     );
   }

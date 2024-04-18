@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Box, BoxProps, Button, Icon, Text} from '@components';
 
 interface Props {
-  imageUri: string;
+  imageUri?: string;
   width: number;
 }
 
@@ -15,16 +15,14 @@ export function Header({imageUri, width}: Props) {
   const {navigate} = useNavigation();
   function navigateToPublishPost() {
     if (imageUri) {
-      return navigate('PublishPostScreen', {
-        imageUri,
-      });
+      navigate('PublishPostScreen', {imageUri});
     }
   }
 
   return (
     <Box>
       <ImageBackground
-        source={{uri: imageUri ? imageUri : images.imagePlaceholder}}
+        source={imageUri ? {uri: imageUri} : images.imagePlaceholder}
         style={[
           {
             width,

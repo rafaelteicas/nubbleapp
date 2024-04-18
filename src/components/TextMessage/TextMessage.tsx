@@ -40,7 +40,7 @@ export function TextMessage({
         <TouchableOpacityBox
           disabled={sendIsDisabled}
           onPress={() => onPressSend(value)}>
-          <Text color={sendIsDisabled ? 'gray2' : 'primary'} bold>
+          <Text color={sendIsDisabled ? 'gray2' : 'greenPrimary'} bold>
             Enviar
           </Text>
         </TouchableOpacityBox>
