@@ -5,13 +5,16 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
+import com.zoontek.rnbootsplash.RNBootSplash;
+
 import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
+    RNBootSplash.init(this, R.style.BootTheme);
+    super.onCreate(savedInstanceState);
   }
 
   /**
