@@ -8,15 +8,15 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Toast} from '@components';
 import {useAppColorScheme} from '@hooks';
 import {Routes} from '@routes';
-import {darkTheme, theme} from '@theme';
 
 import {AuthCredentialsProvider} from './src/services/authCredentials/providers/AuthCredentialsProvider';
 import {MMKVStorage} from './src/services/storage/implementation/MMKVStorage';
-import {initializeStorage} from './src/services/storage/storage';
-
-const queryClient = new QueryClient();
+import {initializeStorage} from './src/services/storage';
+import {darkTheme, theme} from './src/theme/theme';
 
 initializeStorage(MMKVStorage);
+const queryClient = new QueryClient();
+
 
 export function App(): JSX.Element {
   const {appColor} = useAppColorScheme();

@@ -2,13 +2,13 @@ import React from 'react';
 
 import {Post} from '@domain';
 
-import {Box} from '@components';
 
 import {ProfileUser} from '../ProfileUser/ProfileUser';
 
 import {PostActions} from './components/PostActions';
 import {PostBottom} from './components/PostBottom';
 import {PostImage} from './components/PostImage';
+import { Box } from '../Box/Box';
 
 interface Props {
   post: Post;

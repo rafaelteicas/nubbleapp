@@ -2,8 +2,9 @@ import React from 'react';
 
 import {Post} from '@domain';
 import {useNavigation} from '@react-navigation/native';
+import { Box } from '../../Box/Box';
+import { Text } from '../../Text/Text';
 
-import {Box, Text} from '@components';
 
 type Props = Pick<Post, 'author' | 'text' | 'commentCount' | 'id'>;
 export function PostBottom({author, commentCount, text, id}: Props) {

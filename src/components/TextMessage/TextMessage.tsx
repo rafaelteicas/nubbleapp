@@ -1,8 +1,9 @@
 import React, {useRef} from 'react';
 import {Pressable, TextInput, TextInputProps, TextStyle} from 'react-native';
 
-import {Text, Box, TouchableOpacityBox} from '@components';
 import {useAppTheme} from '@hooks';
+import { Box, TouchableOpacityBox } from '../Box/Box';
+import { Text } from '../Text/Text';
 
 interface TextMessageProps extends TextInputProps {
   value: string;

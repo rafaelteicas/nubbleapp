@@ -1,6 +1,6 @@
 import {apiAdapter} from '@api';
-import {ImageForUpload} from '@services';
 import {Page} from '@types';
+import { ImageForUpload } from '@services';
 
 import {postAdapter} from './postAdapter';
 import {postApi} from './postApi';
