@@ -32,7 +32,7 @@ const useSettingsStore = create<SettingsStore>()(
     }),
     {
       name: '@Settings',
-      storage: storage,
+      storage,
     },
   ),
 );

@@ -1,6 +1,6 @@
 import {apiAdapter} from '@api';
+import {ImageForUpload} from '@services';
 import {Page} from '@types';
-import { ImageForUpload } from '@services';
 
 import {postAdapter} from './postAdapter';
 import {postApi} from './postApi';
@@ -20,7 +20,13 @@ async function createPost(
   return postAdapter.toPost(postApiData);
 }
 
+async function getById(postId: number) {
+  const postApiData = await postApi.getById(postId.toString());
+  return postAdapter.toPost(postApiData);
+}
+
 export const postService = {
   getList,
   createPost,
+  getById,
 };

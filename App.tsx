@@ -10,13 +10,12 @@ import {useAppColorScheme} from '@hooks';
 import {Routes} from '@routes';
 
 import {AuthCredentialsProvider} from './src/services/authCredentials/providers/AuthCredentialsProvider';
-import {MMKVStorage} from './src/services/storage/implementation/MMKVStorage';
 import {initializeStorage} from './src/services/storage';
+import {MMKVStorage} from './src/services/storage/implementation/MMKVStorage';
 import {darkTheme, theme} from './src/theme/theme';
 
 initializeStorage(MMKVStorage);
 const queryClient = new QueryClient();
-
 
 export function App(): JSX.Element {
   const {appColor} = useAppColorScheme();

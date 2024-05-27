@@ -1,6 +1,7 @@
-import { useMutation, useQueryClient} from '@tanstack/react-query';
+import {QueryKeys, MutationOptions} from '@infra';
+import {useMutation, useQueryClient} from '@tanstack/react-query';
+
 import {postCommentService} from '../postCommentService';
-import { QueryKeys, MutationOptions } from '@infra';
 
 export function usePostCommentRemove(
   postId: number,

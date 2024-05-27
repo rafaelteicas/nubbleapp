@@ -1,10 +1,10 @@
 import React from 'react';
 import {FlatList, ListRenderItemInfo} from 'react-native';
 
-import {PostComment, usePostCommentList} from '@domain';
+import {PostComment, usePostCommentList, usePostGetById} from '@domain';
 import {useAuthCredentials} from '@services';
 
-import {Box, Screen} from '@components';
+import {Box, PostItem, Screen} from '@components';
 import {useAppSafeArea} from '@hooks';
 import {AppScreenProps} from '@routes';
 
@@ -19,8 +19,11 @@ export function PostCommentScreen({
 }: AppScreenProps<'PostCommentScreen'>) {
   const {postId, authorId} = route.params;
   const {bottom} = useAppSafeArea();
+  const showPost = route.params.showPost || false;
   const {list, hasNextPage, fetchNextPage} = usePostCommentList(postId);
   const {userId} = useAuthCredentials();
+
+  const {post} = usePostGetById(postId, showPost);
 
   function renderItem({item}: ListRenderItemInfo<PostComment>) {
     return (
@@ -33,11 +36,19 @@ export function PostCommentScreen({
     );
   }
   return (
-    <Screen flex={1} title="Comentários" canGoBack>
+    <Screen
+      noPaddingHorizontal
+      flex={1}
+      title={showPost ? 'Post' : 'Comentários'}
+      paddingHorizontal="s24"
+      canGoBack>
       <Box flex={1}>
         <FlatList
           data={list}
           renderItem={renderItem}
+          ListHeaderComponent={
+            post && <PostItem hideCommentAction post={post} />
+          }
           ListFooterComponent={
             <PostCommentBottom
               fetchNextPage={fetchNextPage}

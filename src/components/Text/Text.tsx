@@ -19,7 +19,7 @@ export function Text({
   style,
   bold,
   semiBold,
-  italic,
+  italic = false,
   preset = 'paragraphMedium',
   ...sRTextProps
 }: TextProps) {

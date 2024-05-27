@@ -2,19 +2,19 @@ import React from 'react';
 
 import {Post} from '@domain';
 
-
+import {Box} from '../Box/Box';
 import {ProfileUser} from '../ProfileUser/ProfileUser';
 
 import {PostActions} from './components/PostActions';
 import {PostBottom} from './components/PostBottom';
 import {PostImage} from './components/PostImage';
-import { Box } from '../Box/Box';
 
 interface Props {
   post: Post;
+  hideCommentAction?: boolean;
 }
 
-export function PostItem({post}: Props) {
+export function PostItem({post, hideCommentAction}: Props) {
   return (
     <Box paddingHorizontal="s24" marginBottom="s24">
       <ProfileUser
@@ -25,12 +25,9 @@ export function PostItem({post}: Props) {
         }}
       />
       <PostImage imageURL={post.imageURL} />
-      <PostActions
-        favoriteCount={post.favoriteCount}
-        commentCount={post.commentCount}
-        reactionCount={post.reactionCount}
-      />
+      <PostActions hideCommentAction={hideCommentAction} post={post} />
       <PostBottom
+        hideCommentAction={hideCommentAction}
         author={post.author}
         commentCount={post.commentCount}
         text={post.text}

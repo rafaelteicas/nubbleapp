@@ -14,6 +14,10 @@ function toPost(postAPI: PostAPI): Post {
     commentCount: parseInt(postAPI.meta.comments_count, 10),
     favoriteCount: parseInt(postAPI.meta.favorite_count, 10),
     reactionCount: parseInt(postAPI.meta.like_count, 10),
+    reactions: postAPI.reactions.map(reaction => ({
+      emojiType: reaction.emoji_type,
+      postId: reaction.post_id,
+    })),
   };
 }
 
